@@ -23,7 +23,6 @@ lines = list(filter(lambda x: x != '', lines.split("\n")))[1:]
 ##################### normalization of features #####################
 def apply(x):
 	return float(x)
-	return log(float(x))
 
 imgX = apply(img[1])
 imgY = apply(img[2])

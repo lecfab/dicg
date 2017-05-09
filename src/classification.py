@@ -9,22 +9,23 @@ from bisect import bisect
 if len(sys.argv) < 2:
 	print("Give the image filename")
 	sys.exit(2);
-k = 90 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
+k = 13 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
-maxFeatures = 2
+maxFeatures = 10
 
 stream = os.popen("./src/invariants "+ sys.argv[1]).read()
 img = [float(j) for j in stream.split(",")]
 maxFeatures = min(maxFeatures, len(img))
 
 data = pd.read_csv("src/data.csv")
+N = data.shape[0]
 
 def featName(i):
 	return data.columns[i+1]
 
 ##################### normalization of features #####################
 def normalize(x):
-	return float(x) / data.shape[0]
+	return float(x) / N
 
 def signature(values):
 	s = []
@@ -48,28 +49,37 @@ for i,values in data.rank().iterrows():
 	sig = signature(values)
 	d = distance(sig, imgSig)
 	distances.append((d, i, sig[featA], sig[featB]))
-distances.sort()
 
 ################################ kNN ################################
 f = open("classes.csv","r")
 classes = [c.split(",")[0] for c in f.read().split("\n")]
 f.close()
 
-proba = {}
-unitary_proba = min(1 / 1000, 0.5 / len(classes)) # minimum proba of a class
-neighbors_proba = (1 - len(classes) * unitary_proba) / (k*(k+1)/2) # increase of proba due to neighborhood
 vbOutput = ""
 
+proba = {}
+probaMin = 0.1 # equally distributed proba 
+probaNeighbor = 0.7 # proba given to k neighbors
+probaProximity = 1 - probaMin - probaNeighbor # proba given wrt proximity
+unitMin = probaMin / len(classes)
+unitNeighbor = probaNeighbor / k
+unitProximity = probaProximity / (N*(N+1)/2)
+
+distances.sort()
 for i in range(k):
 	index = distances[i][1]
 	c = data.ix[index]['category']
 	vbOutput += "{}*{}\t\t{}\n".format(c, index%15, distances[i][0])
-	# 		   current proba 	+   better proba for closer neighbors
-	proba[c] = proba.get(c, unitary_proba) + neighbors_proba * (k - i)
+	proba[c] = proba.get(c, unitMin) + unitNeighbor + unitProximity * (N - i)
+for i in range(k,N):
+	c = data.ix[distances[i][1]]['category']
+	proba[c] = proba.get(c, unitMin) + unitProximity * (N - i)
 
 ############################## output ###############################
-txt = "\n".join([str(proba.get(c, unitary_proba)) for c in classes])
-if verbose:
+if not verbose:
+	txt = "\n".join([str(proba.get(c, unitMin)) for c in classes])
+	print(txt)
+else:
 	print(vbOutput)
 	colors = "rgbcmyk"
 	symbols = "ov^<>1234sp*hH+xDd"
@@ -88,7 +98,3 @@ if verbose:
 		plt.plot(x, y, colors[hC] + symbols[hS])
 	plt.get_current_fig_manager().window.showMaximized()
 	plt.show()
-else:
-	oouou = open("oouou.txt","w")
-	oouou.write(txt)
-	print(txt)

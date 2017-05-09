@@ -5,10 +5,10 @@ zmodload -i zsh/mathfunc
 CLASSIFPROG="python3 src/classification.py"
 
 #nb of source images to test
-NBIMGTESTS=40
+NBIMGTESTS=20
 
 #nb of noisyfied copies
-NBTESTS=5
+NBTESTS=2
 
 #No noise here
 MAXNOISE=1
@@ -20,12 +20,11 @@ for ((i=0; i < $NBIMGTESTS; i++)); do
     ##Pick a random class
     CLASSID=`expr $RANDOM % 61 + 1`
     CLASSNAME=`head -$CLASSID classes.csv | tail -1 | sed -e 's/,//'`
-    echo "Classname: "$CLASSNAME
 
     ##Pick a random image in this class
     IMGID=`expr $RANDOM % 10 + 1`
     IMGNAME=database/$CLASSNAME-$IMGID.pgm
-    echo $IMGNAME
+    echo "Classname: "$CLASSNAME "\t\t"$IMGNAME
 
     if [[ -e $IMGNAME ]]; then
         for ((j=0; j < $NBTESTS; j+=1)); do
@@ -43,6 +42,10 @@ for ((i=0; i < $NBIMGTESTS; i++)); do
             RANK=` ./getRank scores_tmp.txt $CLASSID`
             echo "Rank=$RANK\t\t$ANGLE\t$SCALE\t$NOISE"
             
+            ##Number of correct results in the first 1
+            if [[ $RANK -le 1 ]]; then
+               correct1=$(($correct1 + 1.0))
+            fi
             ##Number of correct results in the first 10 
             if [[ $RANK -le 10 ]]; then
                correct=$(($correct + 1.0))
@@ -52,8 +55,10 @@ for ((i=0; i < $NBIMGTESTS; i++)); do
     fi
 done
 echo
-echo "Number of 'correct' classification (first 10 classes)= "$correct
 echo "Total number of tests= "$cpt
+echo "Number of 'perfect' classification (first classe)= "$correct1
+echo "Perfect score= " $(( $correct1 / $cpt ))
+echo "Number of 'correct' classification (first 10 classes)= "$correct
 echo "Final score= " $(( $correct / $cpt ))
 rm tmp.pgm
 #rm tmp2.pgm
