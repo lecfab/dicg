@@ -7,7 +7,7 @@ A database image can be modified in three ways : `imgRotate`, `imgScale`, `imgAd
 To test the classification of randomly modified images, type `zsh scriptClassification.sh`. The recognition works when Rank is 1. Otherwise, we should do better.
 
 ## Distances
-To show the `9` neighbors of a given image like `beetle-1`, do `python3 src/distance.py database/beetle-5.pgm 9 v`
+To show the `9` neighbors of a given image like `beetle-1`, do `python3 src/distance.py database/beetle-1.pgm 9 v`
 Removing `v` gives the probability of matching for each class of `classes.csv`
 
 
