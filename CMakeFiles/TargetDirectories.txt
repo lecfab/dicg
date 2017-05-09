@@ -1,0 +1,6 @@
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/getRank.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/imgAddNoise.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/imgRotate.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/imgScale.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/naiveDistance.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/src/invariants.dir

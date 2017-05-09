@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/getRank.cpp
+algorithm
+-
+iostream
+-
+fstream
+-
+vector
+-
+utility
+-
+functional
+-
+

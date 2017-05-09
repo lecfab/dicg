@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11     CMakeFiles/src/invariants.dir/src/invariants.cpp.o  -o src/invariants  -L/usr/local/lib -rdynamic /usr/local/lib/libDGtal.so -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic -lz -lrt -Wl,-rpath,/usr/local/lib 
