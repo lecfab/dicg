@@ -1,0 +1,101 @@
+\documentclass{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{layout}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{amsmath} % math alignement
+\usepackage{amssymb} % symboles de maths avances
+\usepackage{mathrsfs} % police calligraphique \mathscr (majuscules)
+\usepackage{pgfplots} % traceur de courbes
+\usepackage{stmaryrd} % doubles braquets
+\usepackage{bbm} % apparemment il ne sert a rien
+\usepackage{multicol} % plusieurs colonnes
+\usepackage{dsfont} % symbole indicatrice \mathds{1}
+
+\newcommand{\br}[2][1]{\llbracket #1,#2 \rrbracket}
+\newcommand{\parr}[1]{\left(#1\right)}
+\newcommand{\acc}[1]{\left\lbrace#1\right\rbrace}
+\newcommand{\deq}{\overset{\Delta}{=}}
+\newcommand{\transpose}{^\intercal}
+\newcommand{\bin}[1]{\acc{0,1}^{#1}}
+
+
+\title{Digital Images Project}
+\author{Fabrice \bsc{Lécuyer} and Etienne \bsc{Desbois}}
+\date{}
+
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mc}{\mathcal{M}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Ic}{\mathcal{I}}
+
+\newcommand{\punif}[2][n]{\mathbb{P}_{#2\leftarrow \Uc\parr{\bin{#1}}}}
+
+\begin{document}
+
+\maketitle
+
+\section{Features}
+\subsection{Image moments}
+The first kind of features we use is called image moments. It is a purely mathematical way to describe the distribution of pixels in an image. The $p,q$ moment of a 2D set of pixels $\Sc$ is defined by:
+$$m_{p,q}=\sum_{(x,y)\in\Sc}x^py^q$$
+
+Low moments have intuitive explanations: $m_{0,0}$ is the number of pixels, $\hat{x}=\frac{m_{1,0}}{m_{0,0}}$ is the mean value of abscisse, $\hat{y}=\frac{m_{0,1}}{m_{0,0}}$ is the mean value of ordinate.
+
+To obtain translation invariance, we take a new origin $(\hat{x},\hat{y})$ and define central moments:
+$$\mu_{p,q}=\sum_{(x,y)\in\Sc}(x-\hat{x})^p(y-\hat{y})^q$$
+
+Now we would like to have features with invariance by rotation. Hu's paper gives seven of them (page 7). Let us prove that the first one is indeed invariant:
+
+First, we suppose the image is centered, which means $\hat{x}=\hat{y}=0$.
+$$
+\begin{aligned}
+\phi_1=\mu_{2,0}+\mu_{0,2}&=\sum_{(x,y)\in\Sc}(x-\hat{x})^2(y-\hat{y})^0+(x-\hat{x})^0(y-\hat{y})^2
+=\sum_{(x,y)\in\Sc}x^2+y^2
+\end{aligned}
+$$
+Now define $(x'=x\cos\theta+y\sin\theta,y'=-x\sin\theta+y\cos\theta)$ obtained from $(x,y)$ by rotation of angle $\theta$.
+$$
+\begin{aligned}
+\phi'_1&=\sum_{(x,y)\in\Sc}x'^2+y'^2
+=\sum_{(x,y)\in\Sc}(x\cos\theta+y\sin\theta)^2+(-x\sin\theta+y\cos\theta)^2\\
+&=\sum_{(x,y)\in\Sc}(x^2\cos^2\theta+y^2\sin^2\theta+2xy\cos\theta\sin\theta)+(x^2\sin^2\theta+y^2\cos^2\theta-2xy\cos\theta\sin\theta)\\
+&=\sum_{(x,y)\in\Sc} (x^2+y^2)\underbrace{(\sin^2\theta+\cos^2\theta)}_{=1}\\
+&=\phi_1
+\end{aligned}
+$$
+
+The last step is scale invariance. We define the standardardized moments by
+$\eta_{p,q}=\frac{\mu_{p,q}}{\mu_{0,0}^{\parr{1+\frac{i+j}{2}}}}$.
+
+Suppose we have $(x'=\alpha x, y'=\alpha y)$ obtained frome $(x,y)$ by $\alpha>0$ scaling.
+
+$$
+\begin{aligned}
+\Phi'_1=\eta'_{2,0}+\eta'_{0,2}&=\frac{\mu'_{2,0}+\mu'_{0,2}}{\mu_{0,0}'^2}
+=\frac{\alpha^2(\mu_{2,0}+\mu_{0,2})}{(\alpha\mu_{0,0})^2}
+=\frac{\mu_{2,0}+\mu_{0,2}}{\mu_{0,0}^2}=\Phi_1
+\end{aligned}
+$$
+
+Similarly, we get 7 features $\Phi_1,\dots,\Phi_7$ as given in Hu, that are invariant under translation, rotation and scale.
+
+\subsection{tes trucs Etienne}
+
+\section{Classification}
+\subsection{Method}
+kNN ? neural nets ?
+\subsection{Distance}
+
+\section{Tests}
+\subsection{Classification}
+\subsection{Distanciation}
+
+\end{document}

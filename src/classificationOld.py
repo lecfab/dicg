@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
 	sys.exit(2);
 k = 1 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
-maxFeatures = 2 # 10
+maxFeatures = 2
 
 stream = os.popen("./src/invariants "+ sys.argv[1]).read()
 img = [0] + [float(j) for j in stream.split(",")]
@@ -18,12 +18,12 @@ maxFeatures = min(maxFeatures, len(img)-1)
 data = open("src/data.csv","r")
 lines = data.read()
 data.close()
-lines = list(filter(lambda x: x != '', lines.split("\n")))
+lines = list(filter(lambda x: x != '', lines.split("\n")))[1:]
 
 ##################### normalization of features #####################
 def apply(x):
 	return float(x)
-	return log(log(log(float(x))))
+	return log(float(x))
 
 imgX = apply(img[1])
 imgY = apply(img[2])

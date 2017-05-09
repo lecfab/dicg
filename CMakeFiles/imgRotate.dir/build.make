@@ -84,6 +84,17 @@ imgRotate: CMakeFiles/imgRotate.dir/build.make
 imgRotate: /usr/local/lib/libDGtal.so
 imgRotate: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 imgRotate: /usr/lib/x86_64-linux-gnu/libz.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libQtGui.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libQtXml.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libQtCore.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libQGLViewer.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libGLU.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libGL.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libSM.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libICE.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libX11.so
+imgRotate: /usr/lib/x86_64-linux-gnu/libXext.so
 imgRotate: CMakeFiles/imgRotate.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable imgRotate"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgRotate.dir/link.txt --verbose=$(VERBOSE)

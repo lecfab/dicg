@@ -84,6 +84,17 @@ naiveDistance: CMakeFiles/naiveDistance.dir/build.make
 naiveDistance: /usr/local/lib/libDGtal.so
 naiveDistance: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 naiveDistance: /usr/lib/x86_64-linux-gnu/libz.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libQtGui.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libQtXml.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libQtCore.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libQGLViewer.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libGLU.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libGL.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libSM.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libICE.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libX11.so
+naiveDistance: /usr/lib/x86_64-linux-gnu/libXext.so
 naiveDistance: CMakeFiles/naiveDistance.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable naiveDistance"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/naiveDistance.dir/link.txt --verbose=$(VERBOSE)

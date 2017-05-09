@@ -26,7 +26,6 @@ double ccw(const Point &a, const Point &b, const Point &c)
 double M(const DigitalSet &S, int p, int q, Point c)
 {
     double moment = 0;
-    //for(auto &it : S)
     for(auto it = S.begin(), itEnd = S.end(); it != itEnd; ++it)
         moment += pow((*it)[0]-c[0], p) * pow((*it)[1]-c[1], q);
     return moment;
@@ -37,7 +36,7 @@ Point massCenter(const DigitalSet &S)
 {
     return Point(M0(S,1,0) / S.size(), M0(S,0,1) / S.size());
 }
-double M (const DigitalSet &S, int p, int q) { return M(S, p, q, massCenter(S)); }
+double M (const DigitalSet &S, int p, int q) { return M(S, p, q, massCenter(S)) / pow(S.size(), 1+p/2+q/2); }
 
 vector<double> invariants(const DigitalSet &S)
 {

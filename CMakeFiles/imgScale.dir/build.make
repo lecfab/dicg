@@ -84,6 +84,17 @@ imgScale: CMakeFiles/imgScale.dir/build.make
 imgScale: /usr/local/lib/libDGtal.so
 imgScale: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 imgScale: /usr/lib/x86_64-linux-gnu/libz.so
+imgScale: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+imgScale: /usr/lib/x86_64-linux-gnu/libQtGui.so
+imgScale: /usr/lib/x86_64-linux-gnu/libQtXml.so
+imgScale: /usr/lib/x86_64-linux-gnu/libQtCore.so
+imgScale: /usr/lib/x86_64-linux-gnu/libQGLViewer.so
+imgScale: /usr/lib/x86_64-linux-gnu/libGLU.so
+imgScale: /usr/lib/x86_64-linux-gnu/libGL.so
+imgScale: /usr/lib/x86_64-linux-gnu/libSM.so
+imgScale: /usr/lib/x86_64-linux-gnu/libICE.so
+imgScale: /usr/lib/x86_64-linux-gnu/libX11.so
+imgScale: /usr/lib/x86_64-linux-gnu/libXext.so
 imgScale: CMakeFiles/imgScale.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable imgScale"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgScale.dir/link.txt --verbose=$(VERBOSE)

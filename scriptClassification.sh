@@ -2,7 +2,7 @@
 zmodload -i zsh/mathfunc
 
 ##YOUR Classification progname
-CLASSIFPROG="python3 src/distance.py"
+CLASSIFPROG="python3 src/classification.py"
 
 #nb of source images to test
 NBIMGTESTS=40

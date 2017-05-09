@@ -1,6 +1,7 @@
 #!/bin/bash
-for f in ../database/*.pgm ; do
+echo "category,a,b,c,d,e,f,g"
+for f in database/*.pgm ; do
     name=${f##*/}
     name=$(echo $name | sed 's/-.*pgm//g')
-	echo "${name},$(./invariants $f)"
+	echo "${name},$(./src/invariants $f)"
 done

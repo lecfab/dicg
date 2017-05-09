@@ -9,39 +9,45 @@ from bisect import bisect
 if len(sys.argv) < 2:
 	print("Give the image filename")
 	sys.exit(2);
-k = 11 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
+k = 90 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
-maxFeatures = 2 # 10
+maxFeatures = 2
 
 stream = os.popen("./src/invariants "+ sys.argv[1]).read()
-img = [0] + [float(j) for j in stream.split(",")]
-maxFeatures = min(maxFeatures, len(img)-1)
+img = [float(j) for j in stream.split(",")]
+maxFeatures = min(maxFeatures, len(img))
 
 data = pd.read_csv("src/data.csv")
 
+def featName(i):
+	return data.columns[i+1]
+
 ##################### normalization of features #####################
-def apply(x):
-	return float(x)
+def normalize(x):
+	return float(x) / data.shape[0]
 
-def position(a, b):
-	x = float(a)/data.shape[0]
-	y = float(b)/data.shape[0]
-	y = 0 if a == 0 else float(b)/a
-	return x, y
+def signature(values):
+	s = []
+	for i in range(maxFeatures):
+		s.append(normalize(values[featName(i)]))
+	return s
 
-la = data.sort_values(by='a')
-lb = data.sort_values(by='b')
-
-imgX = bisect([j['a'] for i, j in la.iterrows()], img[1]) - 0.5
-imgY = bisect([j['b'] for i, j in lb.iterrows()], img[2]) - 0.5
-imgX, imgY = position(imgX, imgY)
+featA, featB = 0,1 # id's of columns that will be plotted
+imgSig = []
+for feature in range(maxFeatures):
+	dataSorted = data.sort_values(by=featName(feature)).iterrows()
+	v = bisect([values[featName(feature)] for i,values in dataSorted], img[feature]) - 0.5
+	imgSig.append(normalize(v))
 
 ####################### distances computation #######################
+def distance(sig1, sig2):
+	return sum([abs(sig1[i]-sig2[i])**0.5 for i in range(len(sig1))])
+
 distances = []
-for i,j in data.rank().iterrows():
-	x, y = position(j['a'], j['b'])
-	d = (x - imgX) + (y - imgY)
-	distances.append((d, i, x, y))
+for i,values in data.rank().iterrows():
+	sig = signature(values)
+	d = distance(sig, imgSig)
+	distances.append((d, i, sig[featA], sig[featB]))
 distances.sort()
 
 ################################ kNN ################################
@@ -55,8 +61,9 @@ neighbors_proba = (1 - len(classes) * unitary_proba) / (k*(k+1)/2) # increase of
 vbOutput = ""
 
 for i in range(k):
-	c = data.ix[distances[i][1]]['category']
-	vbOutput += "{}\t\t{}\n".format(c, distances[i][0])
+	index = distances[i][1]
+	c = data.ix[index]['category']
+	vbOutput += "{}*{}\t\t{}\n".format(c, index%15, distances[i][0])
 	# 		   current proba 	+   better proba for closer neighbors
 	proba[c] = proba.get(c, unitary_proba) + neighbors_proba * (k - i)
 
@@ -66,9 +73,12 @@ if verbose:
 	print(vbOutput)
 	colors = "rgbcmyk"
 	symbols = "ov^<>1234sp*hH+xDd"
-	plt.axhline(imgY)
+	imgX, imgY = imgSig[featA], imgSig[featB]
+	
 	plt.axvline(imgX)
+	plt.axhline(imgY)
 	print([imgX, imgY])
+	
 	for i in range(k):
 		d, c, x, y = distances[i]
 		c = data.ix[c]['category']
@@ -76,7 +86,7 @@ if verbose:
 		hS = int(h / len(colors)) # choose symbol
 		hC = h % len(colors) # choose color
 		plt.plot(x, y, colors[hC] + symbols[hS])
-		#plt.annotate(c, (x, (y)))
+	plt.get_current_fig_manager().window.showMaximized()
 	plt.show()
 else:
 	oouou = open("oouou.txt","w")

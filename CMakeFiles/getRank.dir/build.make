@@ -84,6 +84,17 @@ getRank: CMakeFiles/getRank.dir/build.make
 getRank: /usr/local/lib/libDGtal.so
 getRank: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 getRank: /usr/lib/x86_64-linux-gnu/libz.so
+getRank: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+getRank: /usr/lib/x86_64-linux-gnu/libQtGui.so
+getRank: /usr/lib/x86_64-linux-gnu/libQtXml.so
+getRank: /usr/lib/x86_64-linux-gnu/libQtCore.so
+getRank: /usr/lib/x86_64-linux-gnu/libQGLViewer.so
+getRank: /usr/lib/x86_64-linux-gnu/libGLU.so
+getRank: /usr/lib/x86_64-linux-gnu/libGL.so
+getRank: /usr/lib/x86_64-linux-gnu/libSM.so
+getRank: /usr/lib/x86_64-linux-gnu/libICE.so
+getRank: /usr/lib/x86_64-linux-gnu/libX11.so
+getRank: /usr/lib/x86_64-linux-gnu/libXext.so
 getRank: CMakeFiles/getRank.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable getRank"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/getRank.dir/link.txt --verbose=$(VERBOSE)

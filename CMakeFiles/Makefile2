@@ -234,7 +234,7 @@ clean: CMakeFiles/naiveDistance.dir/clean
 CMakeFiles/src/invariants.dir/all:
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/depend
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  6
 	@echo "Built target src/invariants"
 .PHONY : CMakeFiles/src/invariants.dir/all
 
@@ -244,7 +244,7 @@ all: CMakeFiles/src/invariants.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/src/invariants.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/src/invariants.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 .PHONY : CMakeFiles/src/invariants.dir/rule

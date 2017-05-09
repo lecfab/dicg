@@ -1,1 +1,1 @@
-/usr/bin/c++    -std=c++11     CMakeFiles/getRank.dir/getRank.cpp.o  -o getRank  -L/usr/local/lib -rdynamic /usr/local/lib/libDGtal.so -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic -lz -lrt -Wl,-rpath,/usr/local/lib 
+/usr/bin/c++    -std=c++11     CMakeFiles/getRank.dir/getRank.cpp.o  -o getRank  -L/usr/local/lib -rdynamic /usr/local/lib/libDGtal.so -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic -lz -lrt -lQtOpenGL -lQtGui -lQtXml -lQtCore -lQGLViewer -lGLU -lGL -lSM -lICE -lX11 -lXext -Wl,-rpath,/usr/local/lib 

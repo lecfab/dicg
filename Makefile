@@ -296,6 +296,30 @@ naiveDistance.cpp.s:
 	$(MAKE) -f CMakeFiles/naiveDistance.dir/build.make CMakeFiles/naiveDistance.dir/naiveDistance.cpp.s
 .PHONY : naiveDistance.cpp.s
 
+src/invariants.o: src/invariants.cpp.o
+.PHONY : src/invariants.o
+
+# target to build an object file
+src/invariants.cpp.o:
+	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/src/invariants.cpp.o
+.PHONY : src/invariants.cpp.o
+
+src/invariants.i: src/invariants.cpp.i
+.PHONY : src/invariants.i
+
+# target to preprocess a source file
+src/invariants.cpp.i:
+	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/src/invariants.cpp.i
+.PHONY : src/invariants.cpp.i
+
+src/invariants.s: src/invariants.cpp.s
+.PHONY : src/invariants.s
+
+# target to generate assembly for a file
+src/invariants.cpp.s:
+	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/src/invariants.cpp.s
+.PHONY : src/invariants.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -325,6 +349,9 @@ help:
 	@echo "... naiveDistance.o"
 	@echo "... naiveDistance.i"
 	@echo "... naiveDistance.s"
+	@echo "... src/invariants.o"
+	@echo "... src/invariants.i"
+	@echo "... src/invariants.s"
 .PHONY : help
 
 

@@ -16,37 +16,35 @@ int main(int argc, char**argv)
   int cpt=0;
   double score;
   while ((myfile.good()) && (cpt<70))
-    {
-      myfile >> score;
-      scores.push_back( std::make_pair(score,cpt+1));
-      ++cpt;
-    }
+  {
+    myfile >> score;
+    scores.push_back( std::make_pair(score,cpt+1));
+    ++cpt;
+  }
 
   if (cpt < 70)
-    {
-      std::cout << "Problem in the score file!!"<<std::endl;
-      exit(2);
-    }
+  {
+    std::cout << "Problem in the score file!!"<<std::endl;
+    exit(2);
+  }
 
   //We just return the range of realclass
   std::sort(scores.begin(), scores.end(), std::greater< std::pair<double,int> >());
 
   //find the rank (bruteforce)
   auto it = scores.begin();
-  while ((it != scores.end() &&
-          it->second != realclass))
+  while ((it != scores.end() && it->second != realclass))
     ++it;
 
   if (it == scores.end())
-    {
-      std::cout << "Class not found!!"<<std::endl;
-      exit(2);
-    }
+  {
+    std::cout << "Class not found!!"<<std::endl;
+    exit(2);
+  }
 
   //exaeco
   score = it->first;
-  while ( (it != scores.end()) &&
-          ((++it)->first == score)) {}
+  while ( (it != scores.end()) && ((++it)->first == score)) {}
 
   //We output the rank
   std::cout << std::distance(scores.begin(), it)<<std::endl;

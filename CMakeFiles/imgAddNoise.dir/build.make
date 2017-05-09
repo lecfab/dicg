@@ -84,6 +84,17 @@ imgAddNoise: CMakeFiles/imgAddNoise.dir/build.make
 imgAddNoise: /usr/local/lib/libDGtal.so
 imgAddNoise: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 imgAddNoise: /usr/lib/x86_64-linux-gnu/libz.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libQtOpenGL.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libQtGui.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libQtXml.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libQtCore.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libQGLViewer.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libGLU.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libGL.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libSM.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libICE.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libX11.so
+imgAddNoise: /usr/lib/x86_64-linux-gnu/libXext.so
 imgAddNoise: CMakeFiles/imgAddNoise.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable imgAddNoise"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgAddNoise.dir/link.txt --verbose=$(VERBOSE)
