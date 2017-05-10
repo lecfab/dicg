@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11     CMakeFiles/src/pretreatment.dir/src/pretreatment.cpp.o  -o src/pretreatment  -L/usr/local/lib -rdynamic /usr/local/lib/libDGtal.so -Wl,-Bstatic -lboost_program_options -Wl,-Bdynamic -lz -lrt -lQtOpenGL -lQtGui -lQtXml -lQtCore -lQGLViewer -lGLU -lGL -lSM -lICE -lX11 -lXext -Wl,-rpath,/usr/local/lib 

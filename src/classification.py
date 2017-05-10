@@ -11,13 +11,13 @@ if len(sys.argv) < 2:
 	sys.exit(2);
 k = 13 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
-maxFeatures = 10
+maxFeatures = 20
 
 stream = os.popen("./src/invariants "+ sys.argv[1]).read()
 img = [float(j) for j in stream.split(",")]
 maxFeatures = min(maxFeatures, len(img))
 
-data = pd.read_csv("src/data.csv")
+data = pd.read_csv("src/dataAll.csv")
 N = data.shape[0]
 
 def featName(i):

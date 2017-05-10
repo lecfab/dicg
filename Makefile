@@ -176,77 +176,18 @@ src/invariants/fast:
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/build
 .PHONY : src/invariants/fast
 
-getRank.o: getRank.cpp.o
-.PHONY : getRank.o
+#=============================================================================
+# Target rules for targets named src/pretreatment
 
-# target to build an object file
-getRank.cpp.o:
-	$(MAKE) -f CMakeFiles/getRank.dir/build.make CMakeFiles/getRank.dir/getRank.cpp.o
-.PHONY : getRank.cpp.o
+# Build rule for target.
+src/pretreatment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 src/pretreatment
+.PHONY : src/pretreatment
 
-getRank.i: getRank.cpp.i
-.PHONY : getRank.i
-
-# target to preprocess a source file
-getRank.cpp.i:
-	$(MAKE) -f CMakeFiles/getRank.dir/build.make CMakeFiles/getRank.dir/getRank.cpp.i
-.PHONY : getRank.cpp.i
-
-getRank.s: getRank.cpp.s
-.PHONY : getRank.s
-
-# target to generate assembly for a file
-getRank.cpp.s:
-	$(MAKE) -f CMakeFiles/getRank.dir/build.make CMakeFiles/getRank.dir/getRank.cpp.s
-.PHONY : getRank.cpp.s
-
-imgAddNoise.o: imgAddNoise.cpp.o
-.PHONY : imgAddNoise.o
-
-# target to build an object file
-imgAddNoise.cpp.o:
-	$(MAKE) -f CMakeFiles/imgAddNoise.dir/build.make CMakeFiles/imgAddNoise.dir/imgAddNoise.cpp.o
-.PHONY : imgAddNoise.cpp.o
-
-imgAddNoise.i: imgAddNoise.cpp.i
-.PHONY : imgAddNoise.i
-
-# target to preprocess a source file
-imgAddNoise.cpp.i:
-	$(MAKE) -f CMakeFiles/imgAddNoise.dir/build.make CMakeFiles/imgAddNoise.dir/imgAddNoise.cpp.i
-.PHONY : imgAddNoise.cpp.i
-
-imgAddNoise.s: imgAddNoise.cpp.s
-.PHONY : imgAddNoise.s
-
-# target to generate assembly for a file
-imgAddNoise.cpp.s:
-	$(MAKE) -f CMakeFiles/imgAddNoise.dir/build.make CMakeFiles/imgAddNoise.dir/imgAddNoise.cpp.s
-.PHONY : imgAddNoise.cpp.s
-
-imgRotate.o: imgRotate.cpp.o
-.PHONY : imgRotate.o
-
-# target to build an object file
-imgRotate.cpp.o:
-	$(MAKE) -f CMakeFiles/imgRotate.dir/build.make CMakeFiles/imgRotate.dir/imgRotate.cpp.o
-.PHONY : imgRotate.cpp.o
-
-imgRotate.i: imgRotate.cpp.i
-.PHONY : imgRotate.i
-
-# target to preprocess a source file
-imgRotate.cpp.i:
-	$(MAKE) -f CMakeFiles/imgRotate.dir/build.make CMakeFiles/imgRotate.dir/imgRotate.cpp.i
-.PHONY : imgRotate.cpp.i
-
-imgRotate.s: imgRotate.cpp.s
-.PHONY : imgRotate.s
-
-# target to generate assembly for a file
-imgRotate.cpp.s:
-	$(MAKE) -f CMakeFiles/imgRotate.dir/build.make CMakeFiles/imgRotate.dir/imgRotate.cpp.s
-.PHONY : imgRotate.cpp.s
+# fast build rule for target.
+src/pretreatment/fast:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/build
+.PHONY : src/pretreatment/fast
 
 imgScale.o: imgScale.cpp.o
 .PHONY : imgScale.o
@@ -320,6 +261,30 @@ src/invariants.cpp.s:
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/src/invariants.cpp.s
 .PHONY : src/invariants.cpp.s
 
+src/pretreatment.o: src/pretreatment.cpp.o
+.PHONY : src/pretreatment.o
+
+# target to build an object file
+src/pretreatment.cpp.o:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/src/pretreatment.cpp.o
+.PHONY : src/pretreatment.cpp.o
+
+src/pretreatment.i: src/pretreatment.cpp.i
+.PHONY : src/pretreatment.i
+
+# target to preprocess a source file
+src/pretreatment.cpp.i:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/src/pretreatment.cpp.i
+.PHONY : src/pretreatment.cpp.i
+
+src/pretreatment.s: src/pretreatment.cpp.s
+.PHONY : src/pretreatment.s
+
+# target to generate assembly for a file
+src/pretreatment.cpp.s:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/src/pretreatment.cpp.s
+.PHONY : src/pretreatment.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -334,15 +299,7 @@ help:
 	@echo "... naiveDistance"
 	@echo "... rebuild_cache"
 	@echo "... src/invariants"
-	@echo "... getRank.o"
-	@echo "... getRank.i"
-	@echo "... getRank.s"
-	@echo "... imgAddNoise.o"
-	@echo "... imgAddNoise.i"
-	@echo "... imgAddNoise.s"
-	@echo "... imgRotate.o"
-	@echo "... imgRotate.i"
-	@echo "... imgRotate.s"
+	@echo "... src/pretreatment"
 	@echo "... imgScale.o"
 	@echo "... imgScale.i"
 	@echo "... imgScale.s"
@@ -352,6 +309,9 @@ help:
 	@echo "... src/invariants.o"
 	@echo "... src/invariants.i"
 	@echo "... src/invariants.s"
+	@echo "... src/pretreatment.o"
+	@echo "... src/pretreatment.i"
+	@echo "... src/pretreatment.s"
 .PHONY : help
 
 

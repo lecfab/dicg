@@ -34,12 +34,13 @@ double M(const DigitalSet &S, int p, int q, Point c)
 	return moment;
 }
 
+bool ACTIVATE_SCALE = 0;
 double M0(const DigitalSet &S, int p, int q) { return M(S, p, q, Point(0, 0));   }
 Point massCenter(const DigitalSet &S)
 {
 	return Point(M0(S,1,0) / S.size(), M0(S,0,1) / S.size());
 }
-double M (const DigitalSet &S, int p, int q) { return M(S, p, q, massCenter(S)) / pow(S.size(), 1+p/2+q/2); }
+double M (const DigitalSet &S, int p, int q) { return M(S, p, q, massCenter(S)) / pow(S.size(), ACTIVATE_SCALE*(1+p/2+q/2)); }
 
 
 
@@ -123,6 +124,7 @@ int main(int argc, char *argv[])
 	SetFromImage<DigitalSet>::append<Image>(set2d, image, 0, 255);
 
 	vector<double> inv = invariants(set2d);
+    invariants_image(image, inv);
 	cout << inv[0];
 	for(int i=1; i<inv.size(); i++)
 	{

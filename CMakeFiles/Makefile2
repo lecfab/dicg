@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/fabrice/Documents/M1/Vision/lectureDG/assignments/Shape
 CMakeFiles/getRank.dir/all:
 	$(MAKE) -f CMakeFiles/getRank.dir/build.make CMakeFiles/getRank.dir/depend
 	$(MAKE) -f CMakeFiles/getRank.dir/build.make CMakeFiles/getRank.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 
 	@echo "Built target getRank"
 .PHONY : CMakeFiles/getRank.dir/all
 
@@ -69,7 +69,7 @@ all: CMakeFiles/getRank.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/getRank.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/getRank.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 .PHONY : CMakeFiles/getRank.dir/rule
@@ -94,7 +94,7 @@ clean: CMakeFiles/getRank.dir/clean
 CMakeFiles/imgAddNoise.dir/all:
 	$(MAKE) -f CMakeFiles/imgAddNoise.dir/build.make CMakeFiles/imgAddNoise.dir/depend
 	$(MAKE) -f CMakeFiles/imgAddNoise.dir/build.make CMakeFiles/imgAddNoise.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 
 	@echo "Built target imgAddNoise"
 .PHONY : CMakeFiles/imgAddNoise.dir/all
 
@@ -104,7 +104,7 @@ all: CMakeFiles/imgAddNoise.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imgAddNoise.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/imgAddNoise.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 .PHONY : CMakeFiles/imgAddNoise.dir/rule
@@ -129,7 +129,7 @@ clean: CMakeFiles/imgAddNoise.dir/clean
 CMakeFiles/imgRotate.dir/all:
 	$(MAKE) -f CMakeFiles/imgRotate.dir/build.make CMakeFiles/imgRotate.dir/depend
 	$(MAKE) -f CMakeFiles/imgRotate.dir/build.make CMakeFiles/imgRotate.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 
 	@echo "Built target imgRotate"
 .PHONY : CMakeFiles/imgRotate.dir/all
 
@@ -139,7 +139,7 @@ all: CMakeFiles/imgRotate.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/imgRotate.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/imgRotate.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
 .PHONY : CMakeFiles/imgRotate.dir/rule
@@ -164,7 +164,7 @@ clean: CMakeFiles/imgRotate.dir/clean
 CMakeFiles/imgScale.dir/all:
 	$(MAKE) -f CMakeFiles/imgScale.dir/build.make CMakeFiles/imgScale.dir/depend
 	$(MAKE) -f CMakeFiles/imgScale.dir/build.make CMakeFiles/imgScale.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  1
 	@echo "Built target imgScale"
 .PHONY : CMakeFiles/imgScale.dir/all
 
@@ -199,7 +199,7 @@ clean: CMakeFiles/imgScale.dir/clean
 CMakeFiles/naiveDistance.dir/all:
 	$(MAKE) -f CMakeFiles/naiveDistance.dir/build.make CMakeFiles/naiveDistance.dir/depend
 	$(MAKE) -f CMakeFiles/naiveDistance.dir/build.make CMakeFiles/naiveDistance.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  2
 	@echo "Built target naiveDistance"
 .PHONY : CMakeFiles/naiveDistance.dir/all
 
@@ -234,7 +234,7 @@ clean: CMakeFiles/naiveDistance.dir/clean
 CMakeFiles/src/invariants.dir/all:
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/depend
 	$(MAKE) -f CMakeFiles/src/invariants.dir/build.make CMakeFiles/src/invariants.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  3
 	@echo "Built target src/invariants"
 .PHONY : CMakeFiles/src/invariants.dir/all
 
@@ -260,6 +260,41 @@ CMakeFiles/src/invariants.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/src/invariants.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/src/pretreatment.dir
+
+# All Build rule for target.
+CMakeFiles/src/pretreatment.dir/all:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/depend
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles  4
+	@echo "Built target src/pretreatment"
+.PHONY : CMakeFiles/src/pretreatment.dir/all
+
+# Include target in all.
+all: CMakeFiles/src/pretreatment.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/src/pretreatment.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/src/pretreatment.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles 0
+.PHONY : CMakeFiles/src/pretreatment.dir/rule
+
+# Convenience name for target.
+src/pretreatment: CMakeFiles/src/pretreatment.dir/rule
+.PHONY : src/pretreatment
+
+# clean rule for target.
+CMakeFiles/src/pretreatment.dir/clean:
+	$(MAKE) -f CMakeFiles/src/pretreatment.dir/build.make CMakeFiles/src/pretreatment.dir/clean
+.PHONY : CMakeFiles/src/pretreatment.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/src/pretreatment.dir/clean
 .PHONY : clean
 
 #=============================================================================

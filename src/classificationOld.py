@@ -15,7 +15,7 @@ stream = os.popen("./src/invariants "+ sys.argv[1]).read()
 img = [0] + [float(j) for j in stream.split(",")]
 maxFeatures = min(maxFeatures, len(img)-1)
 
-data = open("src/data.csv","r")
+data = open("src/data_noScale.csv","r")
 lines = data.read()
 data.close()
 lines = list(filter(lambda x: x != '', lines.split("\n")))[1:]

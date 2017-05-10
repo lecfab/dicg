@@ -61,4 +61,5 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/imgScale.dir/DependInfo.cmake"
   "CMakeFiles/naiveDistance.dir/DependInfo.cmake"
   "CMakeFiles/src/invariants.dir/DependInfo.cmake"
+  "CMakeFiles/src/pretreatment.dir/DependInfo.cmake"
   )

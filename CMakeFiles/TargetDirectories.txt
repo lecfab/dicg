@@ -4,3 +4,4 @@
 /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/imgScale.dir
 /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/naiveDistance.dir
 /home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/src/invariants.dir
+/home/fabrice/Documents/M1/Vision/lectureDG/assignments/ShapeIndexing/CMakeFiles/src/pretreatment.dir

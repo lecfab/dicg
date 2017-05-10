@@ -2,16 +2,16 @@
 zmodload -i zsh/mathfunc
 
 ##YOUR Classification progname
-CLASSIFPROG="python3 src/classificationOld.py"
+CLASSIFPROG="python3 src/classification.py"
 
 #nb of source images to test
-NBIMGTESTS=100
+NBIMGTESTS=20
 
 #nb of noisyfied copies
 NBTESTS=2
 
 #No noise here
-MAXNOISE=1
+MAXNOISE=1.0
 sum=0.0
 variance=0.0
 cpt=0.0
