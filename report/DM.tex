@@ -2,7 +2,7 @@
 
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[francais]{babel}
+\usepackage[french]{babel}
 \usepackage{layout}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage{amsmath} % math alignement
@@ -42,7 +42,29 @@
 
 \maketitle
 
+\section{Pretreatment}
+
+The goal here is to reduce noise as much as possible. It can be an issue to estimate perimeter for example. We chose here to use what we have seen in class, e.g. erosion/dilation, 
+which can be combined to form closing/opening. A good noise-filter is to combine those once again. With a 3x3 block we retrieve a connex shape (most of the time) but the shape itself is not
+that great (not as smooth as we would want it to be). Yet it erase noise which can be useful for some features.
+
 \section{Features}
+
+\subsection{Handmade features}
+
+\subsubsection{Thickness}
+
+This feature is $\frac{perimeter}{area}$. Its goal is to roughly estimate the thickness of the object depicted. 
+Its sole purpose is to be able to differentiate an apple (low coefficient) from a bone (high coefficient).\\
+It is obviously invariant under translation, rotation, rescaling. Yet it is subject to noise. As said before, pretreatment results in a connex but not smooth image, which increase
+ the perimeter and thus this feature.
+
+\subsubsection{Trick 1: size}
+
+This one is a little ``trick''. It doesn't give any information on the object itself but on the image. It is $\frac{area}{size}$. Bells for example cover most of the image
+but bones only a small part. It helps distinguishing them.\\
+This trick is obviously invariant to everything. Noise doens't affect it much.
+
 \subsection{Image moments}
 The first kind of features we use is called image moments. It is a purely mathematical way to describe the distribution of pixels in an image. The $p,q$ moment of a 2D set of pixels $\Sc$ is defined by:
 $$m_{p,q}=\sum_{(x,y)\in\Sc}x^py^q$$
@@ -87,7 +109,6 @@ $$
 
 Similarly, we get 7 features $\Phi_1,\dots,\Phi_7$ as given in Hu, that are invariant under translation, rotation and scale.
 
-\subsection{tes trucs Etienne}
 
 \section{Classification}
 \subsection{Method}
