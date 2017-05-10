@@ -23,6 +23,7 @@ SET(SRCs
   getRank
   naiveDistance
   src/invariants
+  src/pretreatment
   imgAddNoise
   imgRotate
   imgScale)

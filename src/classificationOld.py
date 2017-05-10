@@ -7,7 +7,7 @@ from math import sqrt, log
 if len(sys.argv) < 2:
 	print("Give the image filename")
 	sys.exit(2);
-k = 1 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
+k = 11 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
 maxFeatures = 2
 
