@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{layout}
-\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[]{geometry}
 \usepackage{amsmath} % math alignement
 \usepackage{amssymb} % symboles de maths avances
 \usepackage{mathrsfs} % police calligraphique \mathscr (majuscules)
@@ -42,13 +42,23 @@
 
 \maketitle
 
-\section{Pretreatment}
+\section*{Introduction}
+
+Given a database containing several images for several classes, we want to build a software that takes a new image and states probabilistically to which class it belongs. We have split the work into two big steps: extraction of features for a given image, and classification of features vector.
+
+The usage of all our scripts can be found in {\tt README.md}.
+
+\section{Features extraction}
+
+The first part deals with images and aims to extract a list of numbers called \emph{features} to describe this image. We got a total of $9$ features, including handmade features (intuitive description of images) and image moments (a well-known means to qualify images).
+
+This part is achieved by the C++ program {\tt invariants.cpp}
+
+\subsection{Pretreatment}
 
 The goal here is to reduce noise as much as possible. It can be an issue to estimate perimeter for example. We chose here to use what we have seen in class, e.g. erosion/dilation, 
 which can be combined to form closing/opening. A good noise-filter is to combine those once again. With a 3x3 block we retrieve a connex shape (most of the time) but the shape itself is not
 that great (not as smooth as we would want it to be). Yet it erase noise which can be useful for some features.
-
-\section{Features}
 
 \subsection{Handmade features}
 
@@ -108,15 +118,45 @@ $$
 $$
 
 Similarly, we get 7 features $\Phi_1,\dots,\Phi_7$ as given in Hu, that are invariant under translation, rotation and scale.
+\vspace{5mm}
+
+After many tests we discovered that the standardized moments $\eta$ gave bad results compared to centered moments $\mu$. Even though we could not understand this behaviour, we decided to keep using $\mu$, but apply normalization more carefully.
 
 
 \section{Classification}
-\subsection{Method}
-kNN ? neural nets ?
-\subsection{Distance}
 
-\section{Tests}
-\subsection{Classification}
-\subsection{Distanciation}
+This part aims to recognize the class of a new image, based on the features of images of a given database. It should be able to deal with modifications of a known image or with a new similar image.
+
+This part has been done in Python, using {\tt pandas} library.
+
+\subsection{Method}
+We consider an image that has undergone modifications (scaling, rotation, addition of noise), and the aim is to classify it: we want to know a distribution of probability that it belongs to a given class. To do so, we use a simple \textbf{k-nearest neighbors} algorithm.
+
+First of all, for every example of the database a signature is computed and the label is given with respect to the class of objects. Then we compute the signature of the modified image, and compute its distance (see below) with all known signatures.
+
+Each close neighbor of our modified image increases the probability that they are in the same class. The final probability is the sum of three aspects:
+\begin{itemize}
+	\item a basic probability for each class, because we know such an algorithm may fail sometimes
+	\item a probability shared among the $k$ closest neighbors
+	\item a probability decreasing with distance do decide between further classes
+\end{itemize}
+
+\subsection{Distance}
+The definition of the distance have been a tough question. Since we were not allowed to use complicated machine learning devices such as metric learning, we had to design something simple.
+
+\subsubsection{Euclidean distance}
+The first idea was to use the Euclidean distance on vector signatures. However, there were several orders of magnitude between the values of different features. It would have given some features a huge importance.
+
+To counter this problem, we used normalization functions. Several have been tested (0-1 normalization, division by median, applying logarithm to spred the values more uniformly...), but we finally decided to just divide each value by the mean of the feature.
+
+Yet the plot of values clearly showed that values where concentrated in some areas, lowering the efficiency of this simple distance. This method is still used in {\tt classificationOld.py}.
+
+\subsubsection{Ranking}
+Instead of keeping the values of each feature, which leads to concentrated points, we replace them by the rank they have in the feature. Smallest value gets rank $0$, biggest gets rank $N$, whatever the range is.
+
+With this solution, we obtain more uniformly distributed points, but it breaks the agglomeration of some classes. More suprisingly, adding new invariants has lowered the efficiency of our classifier. Our results with this algorithm (in {\tt classification.py}) were worse than with the previous one, so we stopped using it.
+
+This failure might be due to the Ranking idea, but it could also be a bad choice of the numerous parameters: the number $k$ of neighbors taken into account, the probability given for basic/neighbors/proximity, the choice of features... 
+
 
 \end{document}
