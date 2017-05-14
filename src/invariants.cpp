@@ -4,7 +4,8 @@
 #include <DGtal/base/Common.h>
 #include <DGtal/io/boards/Board2D.h>
 #include <DGtal/helpers/StdDefs.h>
-#include <DGtal/io/readers/PGMReader.h>
+#include "DGtal/io/readers/GenericReader.h"
+#include "DGtal/io/writers/GenericWriter.h"
 #include "DGtal/images/imagesSetsUtils/SetFromImage.h"
 #include "DGtal/images/ImageContainerBySTLVector.h"
 ///////////////////////////////////////////////////////////////////////////////
@@ -116,8 +117,8 @@ int main(int argc, char *argv[])
 
 
 	//We read the PGM file
-	Image image = PGMReader<Image>::importPGM(filename);
-	//trace.info() << "Image read :"<< image << endl;
+	Image image = GenericReader<Image>::import(argv[1]);
+		//trace.info() << "Image read :"<< image << endl;
 
 	//We convert pixels in ]0,255] into a digital set
 	DigitalSet set2d( image.domain() );

@@ -6,9 +6,12 @@ Source files are in `src/`
 To get the invariants of the image `beetle-1` just type `./src/invariants database/beetle-1.pgm`.
 To create a `data.csv` containing the invariants of every examples of the database, execute script `./src/getInvar.sh > data.csv`
 
+## Preprocessing
+This tool outputs different results of the preprocessing for the same image. Type `./src/preprocessing database/beetle-1.pgm`.
+
 ## Modified images
 A database image can be modified in three ways : `imgRotate`, `imgScale`, `imgAddNoise`.
-To test the classification of randomly modified images, type `zsh scriptClassification.sh`. The recognition works perfectly when Rank is 1. An intermediate objective is to have Rank ≤ 10.
+To test the classification of randomly modified images, type `zsh scriptClassification.sh`. The recognition works perfectly when Rank is 1. The result is nearly always Rank < 4.
 
 ## Distances
 To show the `9` neighbors of a given image like `beetle-1`, do `python3 src/classification.py database/beetle-1.pgm 9 v`.

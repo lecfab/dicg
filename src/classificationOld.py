@@ -9,13 +9,14 @@ if len(sys.argv) < 2:
 	sys.exit(2);
 k = 11 if len(sys.argv) < 3 else int(sys.argv[2]) # number of neighbors taken into account
 verbose = len(sys.argv) > 3 and sys.argv[3] == "v"
-maxFeatures = 2
+maxFeatures = 12
 
 stream = os.popen("./src/invariants "+ sys.argv[1]).read()
 img = [0] + [float(j) for j in stream.split(",")]
 maxFeatures = min(maxFeatures, len(img)-1)
 
-data = open("src/data_noScale.csv","r")
+#data = open("src/data_noScale.csv","r")
+data = open("data.csv", "r")
 lines = data.read()
 data.close()
 lines = list(filter(lambda x: x != '', lines.split("\n")))[1:]
@@ -27,7 +28,7 @@ def apply(x):
 imgX = apply(img[1])
 imgY = apply(img[2])
 
-featSum = [0] * 10
+featSum = [0] * 20
 for line in lines:
 	v = line.split(",")
 	for i in range(maxFeatures):
@@ -36,7 +37,11 @@ featAvg = [x / len(lines) for x in featSum]
 
 ####################### distances computation #######################
 distances = []
-metrics = [1] * 10
+metrics = [1] * 20
+metrics[9] = 0
+metrics[10] = 0.5
+metrics[11] = 0.5
+metrics[12] = 0.5
 for line in lines:
 	v = line.split(",")
 	d = 0
